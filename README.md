@@ -17,6 +17,9 @@ The SwiftUI's bottom sheet [```presentationDetents(_:)```](https://developer.app
 > The main idea is that if your device runs on a platform newer than iOS 16.4, it will use native bottom sheets under the hood. You can easily disable this behavior using modifier `nativeBottomSheetDisabled(:)`. Read below.
 
 
+👨🏻‍💻 Feel free to subscribe to channel **[SwiftUI dev](https://t.me/swiftui_dev)** in telegram.
+
+
 ## Requirements
 
 - iOS 14.0
@@ -70,11 +73,11 @@ func bottomSheet<BottomSheetContent: View>(
 
 ### Parameters
 
-- isPresented: a `Binding` to a Boolean value that determines whether to present the sheet that you create in the modifier’s content closure.
-- detents: a set of supported detents for the sheet. If you provide more that one detent, people can drag the sheet to resize it.
-- selection: a `Binding` to the currently selected detent. Ensure that the value matches one of the detents that you provide for the detents parameter.
-- interaction: a specification of how people can interact with the view behind a presentation.
-- content: a closure that returns the content of the sheet.
+- **isPresented**: *a `Binding` to a Boolean value that determines whether to present the sheet that you create in the modifier’s content closure.*
+- **detents**: *a set of supported detents for the sheet. If you provide more that one detent, people can drag the sheet to resize it.*
+- **selection**: *a `Binding` to the currently selected detent. Ensure that the value matches one of the detents that you provide for the detents parameter.*
+- **interaction**: *a specification of how people can interact with the view behind a presentation.*
+- **content**: *a closure that returns the content of the sheet.*
 
 ### Example
 
