@@ -229,7 +229,7 @@ struct YouView: View {
 <details>
   <summary>nativeBottomSheetDisabled</summary>
 
-As already mentioned, the main idea of this pacakge is that if your device runs on a platform newer than iOS 16.4, it will use native bottom sheets under the hood. 
+As already mentioned, the main idea of this package is that if your device runs on a platform newer than iOS 16.4, it will use native bottom sheets under the hood. 
 
 You can easily disable this behavior using modifier `nativeBottomSheetDisabled(:)`
 
@@ -301,6 +301,78 @@ Modifier `presentationShadow(color: Color, radius: CGFloat, x: CGFloat, y: CGFlo
 ```
 
 </details>
+
+## Migration guide
+
+> [!TIP]
+> After bumping your project's target up to **iOS 16.4**, you can easily migrate to the SwiftUI's implementation of bottom sheets **if you want**. Use this guide.
+
+Your possible code:
+
+```swift
+import SwiftUI
+import BottomSheets
+
+struct MainView: View {
+    @State private var showFirst: Bool = false
+    @State private var showSecond: Bool = false
+    @State private var currentDetent: BPresentationDetent = .medium
+    
+    var body: some View {
+        YourView()
+            .bottomSheet(isPresented: $showFirst) {
+                FirstBottomSheetContent()
+            }
+            .bottomSheet(
+                isPresented: $showSecond,
+                [.height(100), .medium, .fraction(0.6)],
+                selection: $currentDetent,
+                interaction: .enabled(upThrough: .medium)
+            ) {
+                SecondBottomSheetContent()
+                    .bPresentationDragIndicator(.hidden)
+                    .bPresentationBackground(Color.blue.opacity(0.5))
+                    .bPresentationCornerRadius(20)
+                    .bInteractiveDismissDisabled()
+            }
+    }
+}
+
+```
+
+Your possible code after migration:
+
+```swift
+import SwiftUI
+
+struct MainView: View {
+    @State private var showFirst: Bool = false
+    @State private var showSecond: Bool = false
+    @State private var currentDetent: PresentationDetent = .medium
+    
+    var body: some View {
+        YourView()
+            .sheet(isPresented: $showFirst) {
+                FirstBottomSheetContent()
+                    .presentationDetents([.medium])
+            }
+            .sheet(isPresented: $showSecond) {
+                SecondBottomSheetContent()
+                    .presentationDetents(
+                        [.height(100), .medium, .fraction(0.6)],
+                        selection: $currentDetent
+                    )
+                    .presentationBackgroundInteraction(.enabled(upThrough: .medium))
+                    .presentationDragIndicator(.hidden)
+                    .presentationBackground { Color.blue.opacity(0.5) }
+                    .presentationCornerRadius(20)
+                    .interactiveDismissDisabled()
+            }
+    }
+}
+
+
+```
 
 ## Communication
 
