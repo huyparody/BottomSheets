@@ -7,6 +7,10 @@
 [![contact: @lexkraev](https://img.shields.io/badge/contact-%40lexkraev-blue.svg?style=flat)](https://t.me/lexkraev)
 [![Telegram Group](https://img.shields.io/endpoint?color=neon&style=flat-square&url=https%3A%2F%2Ftg.sumanjay.workers.dev%2Fswiftui_dev)](https://telegram.dog/swiftui_dev)
 
+<picture>
+  <img src="./Media/main.png" alt="Bottom sheets by Alex Kraev" width="300">
+</picture>
+
 This package provides a custom implementation of the native SwiftUI's bottom sheet component for devices running iOS < 16.4. 
 
 The SwiftUI's bottom sheet [```presentationDetents(_:)```](https://developer.apple.com/documentation/swiftui/view/presentationdetents(_:)) is only available starting from iOS 16, and many useful modifiers (such as [```presentationBackgroundInteraction(_:)```](https://developer.apple.com/documentation/swiftui/view/presentationbackgroundinteraction(_:))) were introduced even later, in iOS 16.4. 
