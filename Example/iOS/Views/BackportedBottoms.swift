@@ -17,7 +17,7 @@ struct BackportedBottoms: View {
     
     var body: some View {
         ZStack {
-            Color.blue.opacity(0.5)
+            Color.green.opacity(0.5)
             ScrollView {
                 VStack(spacing: 40.0) {
                     Text("Bottom sheets demo")
@@ -97,7 +97,7 @@ struct BackportedBottoms: View {
         // 4: Custom sheet
         .bottomSheet(
             isPresented: $showFullyCustomSheet,
-            [.height(200), .height(300)],
+            [.height(200), .height(600)],
             selection: $currentDetent
         ) {
             BottomContent() {
@@ -106,9 +106,9 @@ struct BackportedBottoms: View {
             .presentationShadow(radius: 5)
             .presentationOverDragLimit(0) // убираю возможность "оттягивать" кастомную шторку
             .bPresentationDragIndicator(.hidden)
-            .bPresentationBackground(Color.blue)
+            .bPresentationBackground(Color.yellow)
             .bPresentationCornerRadius(20)
-            .presentationContentOverlay(Color.red.opacity(0.5))
+            .presentationContentOverlay(Color.black.opacity(0.5))
         }
         // 5: Sheet with different interactions with the background.
         /**

@@ -55,6 +55,7 @@ struct NativeBottoms: View {
             .presentationBackgroundInteraction(interaction ? .enabled(upThrough: .medium) : .disabled)
             .interactiveDismissDisabled(disableSwipeToDismiss)
             .frame(maxWidth: .infinity)
+            .padding(16)
         }
         .ignoresSafeArea(edges: .top)
     }
