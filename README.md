@@ -140,18 +140,89 @@ struct YouView: View {
 
 ✅ [`PresentationDetent`](https://developer.apple.com/documentation/swiftui/presentationdetent) -> `BPresentationDetent`
 
+<details>
+  <summary>Example of usage</summary>
+
+```swift
+@State private var detent: BPresentationDetent = .medium
+```
+
+</details>
+
 ✅ [`PresentationBackgroundInteraction`](https://developer.apple.com/documentation/swiftui/presentationbackgroundinteraction) -> `BPresentationBackgroundInteraction`
 
 ✅ [`interactiveDismissDisabled`](https://developer.apple.com/documentation/swiftui/view/interactivedismissdisabled(_:)) -> `bInteractiveDismissDisabled`
+
+<details>
+  <summary>Example of usage</summary>
+
+```swift
+.bottomSheet(
+    isPresented: $showBottomSheet,
+    [.height(200), .height(300)],
+    selection: $currentDetent
+) {
+    YourBottomSheetContent()
+      .bInteractiveDismissDisabled() // <= Look here ✅
+}
+```
+
+</details>
 
 ✅ [`Visibility`](https://developer.apple.com/documentation/swiftui/visibility) -> `BVisibility`  
 
 ✅ [`presentationDragIndicator`](https://developer.apple.com/documentation/swiftui/view/presentationdragindicator(_:)) -> `bPresentationDragIndicator` 
 
+<details>
+  <summary>Example of usage</summary>
+
+```swift
+.bottomSheet(
+    isPresented: $showBottomSheet,
+    [.height(200), .height(300)],
+    selection: $currentDetent
+) {
+    YourBottomSheetContent()
+      .bPresentationDragIndicator(.hidden) // <= Look here ✅
+}
+```
+</details>
+
+
 ✅ [`presentationBackground`](https://developer.apple.com/documentation/swiftui/view/presentationbackground(_:)) -> `bPresentationBackground` 
+
+<details>
+  <summary>Example of usage</summary>
+
+```swift
+.bottomSheet(
+    isPresented: $showBottomSheet,
+    [.height(200), .height(300)],
+    selection: $currentDetent
+) {
+    YourBottomSheetContent()
+      .bPresentationBackground(Color.blue) // <= Look here ✅
+}
+```
+</details>
+
 
 ✅ [`presentationCornerRadius`](https://developer.apple.com/documentation/swiftui/view/presentationcornerradius(_:)) -> `bPresentationCornerRadius` 
 
+<details>
+  <summary>Example of usage</summary>
+
+```swift
+.bottomSheet(
+    isPresented: $showBottomSheet,
+    [.height(200), .height(300)],
+    selection: $currentDetent
+) {
+    YourBottomSheetContent()
+      .bPresentationCornerRadius(20) // <= Look here ✅
+}
+```
+</details>
 
 ## Additional features
 
