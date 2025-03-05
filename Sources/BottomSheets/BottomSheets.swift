@@ -365,7 +365,7 @@ internal struct BottomSheetViewModifier<BottomSheetContent: View>: ViewModifier 
             )
             .background(backgroundColor)
             .frame(width: geometry.size.width, height: currentHeight, alignment: .top)
-            .cornerRadius(backgroundCornerRadius, corners: [.topLeft, .topRight])
+            .cornerRadiusLib(backgroundCornerRadius, corners: [.topLeft, .topRight])
             .shadow(color: shadowData?.color ?? .clear, radius: shadowData?.radius ?? 0, x: shadowData?.x ?? 0, y: shadowData?.y ?? 0)
             // Ограничиваем размер шторки по высоте экрана
             // Setting the limit the sheet size to the screen height
